@@ -1,0 +1,13 @@
+// set mod to 1e9 + 7
+constexpr int mod = 1000000007;
+
+int fastPow(long u, int p) {
+    long res = 1;
+    while (p) {
+        if (p & 1)
+            res = res * u % mod;
+        u = u * u % mod;
+        p >>= 1;
+    }
+    return res;
+}
