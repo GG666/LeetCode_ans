@@ -1,0 +1,15 @@
+// mod = 1e9 + 7
+constexpr int mod = 1000000007;
+// fact to 1e5 + 1
+int fact[100001], ifact[100001];
+
+// pre-calculate
+const int speedup = []{
+    long last = fact[0] = 1;
+    for (int i = 1; i != 100001; ++i)
+        fact[i] = last = i * last % mod;
+    ifact[100000] = last = fastPow(last, mod - 2);
+    for (int i = 100000; i; --i)
+        ifact[i - 1] = last = i * last % mod;
+    return 0;
+}();
