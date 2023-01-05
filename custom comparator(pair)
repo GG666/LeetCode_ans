@@ -1,0 +1,11 @@
+// pair
+class Compare {
+public:
+    bool operator()(pair<int,int> below, pair<int,int> above)
+    {
+        if (below.first != above.first)
+            return below.first > above.first;
+        else 
+            return below.second > above.second;
+    }
+};
