@@ -54,3 +54,5 @@ const int speedup = []{
     return 0;
 }();
 ```
+
+<note> Equality is stronger than congruence.
