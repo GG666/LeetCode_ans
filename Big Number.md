@@ -9,6 +9,7 @@ There are many big number questions. Unfortunately, C/C++ can handel numbers as 
 ![](https://i.imgur.com/1m86sik.png)
 
 If a is not a multiplicative numbers of p, the theorem can be write as follows:
+
 ![](https://i.imgur.com/KA1RmX1.png)
 
 Therefore, when we want to calculate n!(n factorial) mod p, we can use this theorem.
