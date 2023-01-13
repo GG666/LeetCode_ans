@@ -1,0 +1,25 @@
+// BFS template to calculate depth
+
+void BFS_depth(int curNode){
+    vector<bool> VIS(N);
+    VIS[curNode] = 1;
+    queue<int> curNodes;
+    curNodes.push(curNode);
+    int count = 0, curSize, cur;
+    while(!curNodes.empty()){
+        ++count;
+        curSize = curNodes.size();
+        for(i = 0; i != curSize; ++i){
+            cur = curNodes.front();
+            curNodes.pop();
+            for(auto &j : adj_list[cur]){
+                if(VIS[j])
+                    continue;
+                VIS[j] = 1;
+                curNodes.push(j);
+            }
+        }
+    }
+    if(count > d)
+        d = count;
+}
