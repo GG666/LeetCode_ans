@@ -1,0 +1,36 @@
+    // adj list
+    adj.resize(n);
+    for(auto &i : edges)
+        adj[i[0]].push_back(i[1]), adj[i[1]].push_back(i[0]);
+        
+    // DFS
+    void DFS(int &cur, int &parent){
+        for(auto &i : adj[cur]){
+            if(i == parent)
+                continue;
+                
+        }
+    }
+    
+    // BFS and visited
+    void BFS(int root){
+        vis[root] = 1;
+        queue<int> curNodes;
+        curNodes.push(root);
+        int curSize, cur;
+        while(!curNodes.empty()){
+            curSize = curNodes.size();
+            for(i = 0; i != curSize; ++i){
+                cur = curNodes.front();
+                curNodes.pop();
+                
+                for(auto &j : adj_list[cur]){
+                    if(vis[j])
+                        continue;
+                    
+                    vis[j] = 1;
+                    curNodes.push(j);
+                }
+            }
+        }
+    }
