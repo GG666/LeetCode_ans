@@ -1,0 +1,26 @@
+class DSU{
+private:
+    vector<int> parents;
+public:
+    DSU(int n) : parents(n){
+        iota(parents, parents + n);
+    }
+    
+    int find(int x){
+        if(parents[x] != x)
+            parents[x] = find(parents[x]);
+
+        return parents[x];
+    }
+    
+    void merge(int x, int y){
+        int parent1 = find(x);
+        int parent2 = find(y);
+        if(parent1 < parent2){
+            parents[parent2] = parent1;
+        }
+        else if(parent1 > parent2){
+            parents[parent1] = parent2;
+        }
+    }
+};
