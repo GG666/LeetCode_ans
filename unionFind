@@ -16,6 +16,8 @@ public:
     void merge(int x, int y){
         int parent1 = find(x);
         int parent2 = find(y);
+        
+        // merge by the smaller lexicographic
         if(parent1 < parent2){
             parents[parent2] = parent1;
         }
