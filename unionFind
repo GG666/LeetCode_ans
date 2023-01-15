@@ -32,34 +32,40 @@ public:
 
 class DisjointSet {
 private:
+    int pX, pY;
     vector<int> parent;
     vector<int> rank;
 public:
     DisjointSet(int size) {
-        parent.resize(size, 0);
-        rank.resize(size, 0);
-        for (int i = 0; i < size; ++i) parent[i] = i;
+        parent.resize(size);
+        rank.resize(size);
+        iota(parent.begin(), parent.end(), 0);
     }
+
     int find(int x) {
         if (parent[x] != x) {
             parent[x] = find(parent[x]);
         }
         return parent[x];
     }
+    
     void join(int x, int y) {
-        int pX = find(x);
-        int pY = find(y);
+        pX = find(x), pY = find(y);
         if (pX == pY) return;
         if (rank[pX] > rank[pY]) {
             parent[pY] = pX;
+            rank[pX] += rank[pY];
+            rank[pY] = 0;
         }
         else if (rank[pX] < rank[pY]) {
             parent[pX] = pY;
+            rank[pY] += rank[pX];
+            rank[pX] = 0;
         }
         else {
             parent[pY] = pX;
-            rank[pX]++;
+            rank[pX] += rank[pY];
+            rank[pY] = 0;
         }
     }
-    
 };
