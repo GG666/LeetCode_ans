@@ -28,7 +28,7 @@ public:
 };
 
 
-// with rank
+// with size as rank 
 
 class DisjointSet {
 private:
