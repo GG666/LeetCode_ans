@@ -1,0 +1,32 @@
+
+// about lower_bound
+/* 
+   Iterator pointing to the first element in the range [first, last)
+   such that element < value (or comp(element, value)) is false, 
+   or last if no such element is found.
+*/
+// b is the target element?
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    vector<int> v = {1,3,5,7,9,11,15,17};
+    auto it1 = v.begin();
+    auto it2 = v.begin();
+    int ta1 = 3, ta2 = 4;
+    it1 = lower_bound(v.begin(), v.end(), ta1);
+    it2 = lower_bound(v.begin(), v.end(), ta2);
+    cout<<"Normal comparator:\n";
+    cout<<*it1<<" "<<*it2<<endl;
+    
+    it1 = lower_bound(v.begin(), v.end(), ta1, [&](const int a, const int b){
+        return a < b;
+    });
+    it2 = lower_bound(v.begin(), v.end(), ta2, [&](const int a, const int b){
+        return a < b;
+    });
+    cout << "Custom comparator:\n";
+    cout<<*it1<<" "<<*it2<<endl;
+}
